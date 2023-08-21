@@ -21,9 +21,12 @@ class ProductController extends Controller
     public function addProductToCart(Request $request) {
         $product = Cart::where('ProductId', intval($request->id))->first();
         if ($product) {
-            // Nếu sản phẩm đã tồn tại, tăng số lượng lên 1
-            $product->Quantity += 1;
-            $product->save();
+            return response()->json([
+                'message' => 'warning',
+                'code' => 'Product already exists',
+                'successfully' => true,
+                'data' => null,
+            ]);
         } else {
             // $product = new Cart(['ProductID' => $request->id,'Quantity' => 1]);
             $product = Cart::create([
