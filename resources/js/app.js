@@ -1,4 +1,4 @@
 import { createApp } from "vue";
-import Welcome from "./Welcome.vue";
+import ShoppingCart from "./ShoppingCart.vue";
 
-createApp(Welcome).mount("#app");
+createApp(ShoppingCart).mount("#app");
